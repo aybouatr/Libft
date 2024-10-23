@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 11:39:59 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/22 11:40:04 by aybouatr         ###   ########.fr       */
+/*   Created: 2024/10/23 08:57:33 by aybouatr          #+#    #+#             */
+/*   Updated: 2024/10/23 08:57:37 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memchr(const void *buf, int c, size_t count)
+void *ft_memcpy(void *to, const void *from, size_t numBytes)
 {
-    unsigned int i;
-    char         *str;
+    char *to2;
+    char *from2;
+    int  i;
 
+    to2 = (char *)to;
+    from2 = (char *)from;
     i = 0;
-    str = (char *)buf;
-    while((size_t)i < count)
+    if (!from || numBytes <= 0)
+        return (NULL);
+    while ((size_t)i < numBytes && from2[i])
     {
-        if ((*str) == (char )c)
-            return ((void *)str);
-        str++;
+        to2[i] = from2[i];
         i++;
     }
-    if(c == 0)
-        return ((void *)str);
-    return (NULL);
+    return (to);
 }
