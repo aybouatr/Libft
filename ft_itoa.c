@@ -24,7 +24,7 @@ int CounNBR(int n)
         nb = nb * -1;
         counter++;
     }
-    while(nb % 10)
+    while(nb)
     {
         nb = nb / 10;
         counter++;
@@ -77,8 +77,7 @@ char *ft_itoa(int n)
     str = (char *)malloc((len_nbr + 1) * sizeof(char));
     if (!str)
         return (NULL);
-    str[len_nbr] = '\0';
-    len_nbr--;
+    str[len_nbr--] = '\0';
     if (n < 0)
     {
         n = n * -1;
@@ -86,15 +85,8 @@ char *ft_itoa(int n)
     }
     while(n)
     {
-        str[len_nbr] = (n % 10) + '0';
+        str[len_nbr--] = (n % 10) + '0';
         n = n /10;
-        len_nbr--;
     }
-   // str[len_nbr] = n + '0';
     return (str);
-}
-
-int main()
-{
-     printf("-----> %s\n",ft_itoa(-210));
 }

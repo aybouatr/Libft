@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 11:26:28 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/24 13:10:42 by aybouatr         ###   ########.fr       */
+/*   Created: 2024/10/24 15:09:13 by aybouatr          #+#    #+#             */
+/*   Updated: 2024/10/24 15:09:16 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char *ft_strdup(const char *s1)
 {
-	unsigned int	count;
-	unsigned int	i;
+    char *new_s;
+    int i;
 
-	count = (unsigned int)ft_strlen(src);
-	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
-	{
-		dest[i] = src[i];
-		++i;
-	}
-	dest[i] = '\0';
-	return (count);
+    i = 0;
+    new_s = (char *)malloc((ft_strlen((char *)s1) + 1) * sizeof(char));
+    if (!new_s)
+        return (NULL);
+    while (s1[i])
+    {
+        new_s[i] = s1[i];
+        i++;
+    }
+    new_s[i] = '\0';
+    return (new_s);
 }
