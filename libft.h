@@ -34,6 +34,7 @@ void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 char *ft_strmapi(const char *s, char (*f)(unsigned int, char));
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 
 #endif
