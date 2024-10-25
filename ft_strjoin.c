@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:31:05 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/22 10:31:08 by aybouatr         ###   ########.fr       */
+/*   Created: 2024/10/25 11:06:25 by aybouatr          #+#    #+#             */
+/*   Updated: 2024/10/25 11:06:29 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	counter;
+	char	*str;
+	char	*str1;
+	char	*str2;
+	int		i;
 
-	counter = 0;
-	while (s[counter])
-		counter++;
-	return (counter);
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	i = 0;
+	str = (char *)malloc((ft_strlen(str1) + ft_strlen(str2) + 1)
+			* sizeof(char));
+	if (!str)
+		return (NULL);
+	while (str1[i])
+	{
+		str[i] = str1[i];
+		i++;
+	}
+	while (*str2)
+	{
+		str[i++] = *str2;
+		str2++;
+	}
+	str[i] = '\0';
+	return (str);
 }

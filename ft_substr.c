@@ -14,28 +14,30 @@
 
 char *ft_substr(const char *s, unsigned int start, size_t len)
 {
-    char *str;
-    char *ss;
-    size_t i;
+    char    *str;
+	size_t  len_s;
+    size_t  i;
 
-    ss = (char *)s;
+    len_s = (size_t)ft_strlen(s);
     i = 0;
-    str = malloc((len + 1) * sizeof(char));
-    if (!str || ((size_t)(start + len) >= (size_t)ft_strlen(ss)))
+    if (start >= len_s)
+        len_s = start;
+    str = (char *)malloc(((len_s - start) + 1) * sizeof(char));
+    if (!str)
         return (NULL);
-    while (i < len)
+    while (i < len && start < len_s)
     {
-        str[i] = ss[start];
+        str[i] = s[start + i];
         i++;
-        start++;
     }
     str[i] = '\0';
-    return (str);
+    return (str);     
 }
 
 int main()
 {
-    const char gg[] = "Bonjour comment ca va?";
-    printf("-----> %s",ft_substr(gg, 5, 8));
+    const char s[] = "hi all contry !";
+    printf("-----> %s\n",ft_substr(s,7,-4));
+    printf("-----> %s\n",ft_substr(s,7,-4));
 
 }
