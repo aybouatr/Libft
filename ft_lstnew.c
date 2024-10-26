@@ -25,13 +25,3 @@ t_list *ft_lstnew(void *content)
 
     return (node);
 }
-
-int main()
-{
-    t_list *node;
-    int nb = 65;
-
-    node = ft_lstnew(&nb);
-
-    printf("------> %c",*(char *)node->content);
-}

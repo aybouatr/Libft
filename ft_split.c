@@ -53,17 +53,42 @@ char	*get_word(const char *str, char c)
 	return (word);
 }
 
+int	check_isfound_wrong(char **sword, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j <= i)
+	{
+		if (sword[j] == NULL)
+			return (1);
+		j++;
+	}
+	return (0);
+}
+
+void	free_alocated_failed(char **sword, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j <= i)
+	{
+		free (sword[j]);
+		j++;
+	}
+	free (sword);
+}
+
 char	**ft_split(char const *str, char c)
 {
-	short	nbr_word;
 	char	**sword;
 	int		i;
 	int		indexword;
 
 	i = 0;
 	indexword = 0;
-	nbr_word = count_word(str, c);
-	sword = (char **)malloc((nbr_word + 1) * sizeof(char *));
+	sword = (char **)malloc((count_word(str, c) + 1) * sizeof(char *));
 	if (!sword)
 		return (NULL);
 	while (str[i])
@@ -79,5 +104,7 @@ char	**ft_split(char const *str, char c)
 		indexword++;
 	}
 	sword[indexword] = NULL;
+	if (check_isfound_wrong(sword, indexword - 1))
+		free_alocated_failed(sword, indexword);
 	return (sword);
 }
