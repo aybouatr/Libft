@@ -59,15 +59,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*s;
 	int		i;
 
-	skiip_beg = skiipSet_atbeg(set, s1);
+	skiip_beg = skiipset_atbeg(set, s1);
 	skiip_end = skiipset_atend(set, s1);
 	s = (char *)s1;
+	i = 0;
 	str = (char *)malloc(((ft_strlen(s) - (skiip_beg + skiip_end)) + 1)
 			* sizeof(char));
 	if (!str)
 		return (str);
-	while ((unsigned int)(i + skiip_beg) < (unsigned int)(ft_strlen(s)
-			- skiip_end))
+	while ((unsigned int)(i + skiip_beg) < ((unsigned int)(ft_strlen(s)
+			- skiip_end)))
 	{
 		str[i] = s[skiip_beg + i];
 		i++;

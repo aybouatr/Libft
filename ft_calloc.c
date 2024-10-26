@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*str;
 
-	str = (char *)malloc(count * size);
+	str = (unsigned char *)malloc(count * size);
 	if (!str)
 		return (NULL);
 	return (ft_memset((void *)str, 0, size));

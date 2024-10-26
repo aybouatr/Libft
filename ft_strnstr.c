@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		{
 			while (hayst[counter_needle] == need[counter_needle])
 				counter_needle++;
-			if (need[counter_needle] == '\0' && (i + counter_needle < len))
+			if (need[counter_needle] == '\0' && ((i + counter_needle) < (int )len))
 				return (hayst);
 		}
 		i++;

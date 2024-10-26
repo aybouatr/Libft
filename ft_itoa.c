@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	counnter_nb(int n)
+int	counter_nb(int n)
 {
 	long	nb;
 	int		counter;
