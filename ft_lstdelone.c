@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 11:49:04 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/26 11:49:07 by aybouatr         ###   ########.fr       */
+/*   Created: 2024/10/27 18:25:54 by aybouatr          #+#    #+#             */
+/*   Updated: 2024/10/27 18:25:57 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*node;
-
-	node = (t_list *)malloc(sizeof(t_list));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	if (!del || !lst)
+		return ;
+	del(lst->next);
 }

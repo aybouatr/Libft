@@ -16,11 +16,11 @@ char	*ft_strchr(const char *str, int search_str)
 {
 	while (*str)
 	{
-		if (*str == search_str)
+		if (*str == (char )search_str)
 			return ((char *)str);
 		str++;
 	}
-	if (search_str == '\0')
+	if ((char )search_str == 0)
 		return ((char *)str);
 	return (NULL);
 }

@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	stock;
+	int			sign;
+	long long	stock;
 
 	sign = 1;
 	stock = 0;
@@ -32,5 +32,8 @@ int	ft_atoi(const char *str)
 		stock = (stock * 10) + (*str - '0');
 		str++;
 	}
-	return (stock * sign);
+	stock = stock * sign;
+	if (stock >= 9223372036854775807 || - 9223372036854775807 > stock)
+		return (-1);
+	return ((int )stock);
 }

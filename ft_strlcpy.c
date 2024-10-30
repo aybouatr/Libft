@@ -19,6 +19,8 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 	count = (unsigned int)ft_strlen(src);
 	i = 0;
+	if (size == 0)
+		return (count);
 	while (src[i] != '\0' && i < (size - 1))
 	{
 		dest[i] = src[i];

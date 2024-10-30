@@ -19,13 +19,13 @@ char	*ft_strrchr(const char *str, int chr)
 	ptr = NULL;
 	while (*str)
 	{
-		if (*str == chr)
+		if (*str == (char )chr)
 			ptr = (char *)str;
 		str++;
 	}
 	if (ptr != NULL)
 		return (ptr);
-	else if (chr == '\0')
+	else if ((char )chr == '\0')
 		return ((char *)str);
 	else
 		return (NULL);

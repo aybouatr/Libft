@@ -22,5 +22,5 @@ int	ft_strncmp(const char *string1, const char *string2, size_t count)
 		i++;
 	if ((size_t)i == count)
 		return (0);
-	return (string1[i] - string2[i]);
+	return ((unsigned char)string1[i] - (unsigned char)string2[i]);
 }

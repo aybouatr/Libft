@@ -16,14 +16,12 @@ void	*ft_memcpy(void *to, const void *from, size_t numBytes)
 {
 	char	*to2;
 	char	*from2;
-	int		i;
+	size_t	i;
 
 	to2 = (char *)to;
 	from2 = (char *)from;
 	i = 0;
-	if (!from || numBytes <= 0)
-		return (NULL);
-	while ((size_t)i < numBytes && from2[i])
+	while ((to || from) && i < numBytes)
 	{
 		to2[i] = from2[i];
 		i++;
