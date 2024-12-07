@@ -12,30 +12,50 @@
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static char	*ft_strcpy(char *dst, const char *src)
 {
-	char	*str;
-	char	*str1;
-	char	*str2;
-	int		i;
+	size_t	i;
 
-	str1 = (char *)s1;
-	str2 = (char *)s2;
 	i = 0;
-	str = (char *)malloc((ft_strlen(str1) + ft_strlen(str2) + 1)
-			* sizeof(char));
-	if (!str)
-		return (NULL);
-	while (str1[i])
+	while (src[i])
 	{
-		str[i] = str1[i];
+		dst[i] = src[i];
 		i++;
 	}
-	while (*str2)
+	dst[i] = '\0';
+	return (dst);
+}
+
+static char	*ft_strcat(char *dst, const char *src)
+{
+	size_t	i;
+	size_t	d_len;
+
+	d_len = ft_strlen(dst);
+	i = 0;
+	while (src[i])
 	{
-		str[i++] = *str2;
-		str2++;
+		dst[d_len + i] = src[i];
+		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	dst[d_len + i] = '\0';
+	return (dst);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	res = (char *)ft_calloc(sizeof(char), ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (NULL);
+	ft_strcpy(res, s1);
+	ft_strcat(res, s2);
+	return (res);
 }

@@ -14,26 +14,25 @@
 
 int	ft_atoi(const char *str)
 {
-	int			sign;
-	long long	stock;
+	long	res;
+	size_t	i;
+	int		sgn;
 
-	sign = 1;
-	stock = 0;
-	while ((*str >= 9 && *str <= 13) || (32 == *str))
-		str++;
-	if (*str == '-' || *str == '+')
+	i = 0;
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
+		i++;
+	sgn = 1;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (str[i] == '-')
+			sgn = -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
+	res = 0;
+	while (str[i] && ft_isdigit(str[i]))
 	{
-		stock = (stock * 10) + (*str - '0');
-		str++;
+		res = res * 10 + (str[i] - '0');
+		i++;
 	}
-	stock = stock * sign;
-	if (stock >= 9223372036854775807 || - 9223372036854775807 > stock)
-		return (-1);
-	return ((int )stock);
+	return ((int )res * sgn);
 }

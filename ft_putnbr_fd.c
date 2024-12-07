@@ -6,7 +6,7 @@
 /*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:47:36 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/24 11:47:39 by aybouatr         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:58:51 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	char	temp;
 
-	str = "0123456789";
-	if (fd == -1)
+	if (fd < 0)
 		return ;
 	if (n == -2147483648)
 	{
@@ -26,10 +25,11 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 	{
-		n = n * -1;
 		ft_putchar_fd('-', fd);
+		n *= -1;
 	}
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
-	write(fd, &str[n % 10], 1);
+	temp = n % 10 + '0';
+	ft_putchar_fd(temp, fd);
 }

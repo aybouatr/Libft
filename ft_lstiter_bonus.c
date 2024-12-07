@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,32 +12,13 @@
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    t_list *new_node;
-    t_list *head;
-    t_list *firs_new_node;
-
-    if (!lst || !del || !f)
-        return (NULL);
-    head = lst;
-    firs_new_node = ft_lstnew((*f)(head->content));
-    if (!firs_new_node)
-        return (NULL);
-    head = head->next;
-    new_node = firs_new_node;
-    while (head != NULL)
-    {
-        new_node->next = ft_lstnew((*f)(head->content));
-        if (!new_node->next)
-        {
-            new_node->next = NULL;
-            ft_lstclear(&firs_new_node,del);
-            return NULL;
-        }
-        new_node = new_node->next;
-        head = head->next;
-    }
-    new_node->next = NULL;
-    return (firs_new_node);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

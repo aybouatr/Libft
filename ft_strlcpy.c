@@ -12,20 +12,18 @@
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	count;
-	unsigned int	i;
+	size_t	i;
 
-	count = (unsigned int)ft_strlen(src);
-	i = 0;
 	if (size == 0)
-		return (count);
-	while (src[i] != '\0' && i < (size - 1))
+		return (ft_strlen(src));
+	i = 0;
+	while ((src[i]) && i < size - 1)
 	{
 		dest[i] = src[i];
-		++i;
+		i++;
 	}
 	dest[i] = '\0';
-	return (count);
+	return (ft_strlen(src));
 }

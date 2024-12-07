@@ -6,7 +6,7 @@
 /*   By: aybouatr <aybouatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:29:48 by aybouatr          #+#    #+#             */
-/*   Updated: 2024/10/24 11:29:52 by aybouatr         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:58:14 by aybouatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd == -1)
-		return ;
-	write(fd, &c, 1);
+	if (fd >= 0)
+		write(fd, &c, 1);
 }

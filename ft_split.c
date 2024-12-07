@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-short	count_word(const char *str, char c)
+static short	count_word(const char *str, char c)
 {
 	int		i;
 	short	counter;
@@ -31,7 +31,7 @@ short	count_word(const char *str, char c)
 	return (counter);
 }
 
-char	*get_word(const char *str, char c)
+static char	*get_word(const char *str, char c)
 {
 	char	*word;
 	int		len_word;
@@ -53,7 +53,7 @@ char	*get_word(const char *str, char c)
 	return (word);
 }
 
-char	**free_alocated_failed(char **sword, int i)
+static char	**free_alocated_failed(char **sword, int i)
 {
 	int	j;
 
@@ -67,7 +67,7 @@ char	**free_alocated_failed(char **sword, int i)
 	return (NULL);
 }
 
-char	**help_func(char const *str, char c, int i, int indexword)
+static char	**help_func(char const *str, char c, int i, int indexword)
 {
 	char	**sword;
 

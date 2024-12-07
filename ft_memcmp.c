@@ -14,14 +14,14 @@
 
 int	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
-	unsigned int			i;
+	size_t					i;
 	unsigned char			*ptr1;
 	unsigned char			*ptr2;
 
 	ptr1 = (unsigned char *)pointer1;
 	ptr2 = (unsigned char *)pointer2;
 	i = 0;
-	while ((size_t)i < size)
+	while (i < size)
 	{
 		if (*ptr1 != *ptr2)
 			return (*ptr1 - *ptr2);

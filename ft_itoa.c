@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	counter_nb(int n)
+static int	counter_nb(int n)
 {
 	long	nb;
 	int		counter;
@@ -32,7 +32,7 @@ int	counter_nb(int n)
 	return (counter);
 }
 
-char	*get_zero(void)
+static char	*get_zero(void)
 {
 	char	*str;
 
@@ -44,7 +44,7 @@ char	*get_zero(void)
 	return (str);
 }
 
-char	*get_min(void)
+static char	*get_min(void)
 {
 	char	*str;
 	char	*ss;
